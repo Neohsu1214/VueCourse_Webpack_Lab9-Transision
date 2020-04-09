@@ -14,20 +14,27 @@
 
                 <!-- 幫 transition 取名 slide 後會自動依序叫用 slide-enter, slide-enter-active, slide-leave, slide-leave-active -->
                 <transition name="slide">
-                    <div class="alert alert-info" v-if="show">This is some info!</div>
+                    <div class="alert alert-info" v-show="show">This is some info!</div>
                 </transition>
                 
+                <app-mix-transition></app-mix-transition>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import MixTransition from "./MixTransition";
+
     export default {
-        data() {
+        data: function() {
             return {
                 show: false
             }
+        },
+        components: {
+            appMixTransition: MixTransition
         }
     }
 </script>
