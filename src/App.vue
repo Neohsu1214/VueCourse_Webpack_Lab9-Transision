@@ -31,9 +31,13 @@
                 </select>
                 <button class="btn btn-primary" @click="show2 = !show2">Show Alert</button>
                 <br><br>
-                <transition :name="selectedAnimation">
-                    <div class="alert alert-info" v-if="show2">This is some info!</div>
+                <transition :name="selectedAnimation" mode="out-in">
+                    <div class="alert alert-info" v-if="show2" key="info">This is some info!</div>
+                    <!-- 雖然一個 transition中只能有一個 element，但可透過 v-if, v-else 使得『真的只有一個』element會在 transition 當中！ -->
+                    <!-- 但是！務必要加上『key』，不然Vue會不曉得要將動畫套用到哪一個去（不太聰明，希望以後會自己辨識） -->
+                    <div class="alert alert-warning" v-else key="warning">This is some warning!</div>
                 </transition>
+                <!-- transition可以使用 mode 設定要執行 out/in 的順序， out-in 代表先執行 out 再執行 in -->
             </div>
         </div>
     </div>
