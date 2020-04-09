@@ -19,6 +19,7 @@
                 
                 <app-mix-transition></app-mix-transition>
 
+                <app-animate-css></app-animate-css>
             </div>
         </div>
     </div>
@@ -26,6 +27,7 @@
 
 <script>
     import MixTransition from "./MixTransition";
+    import AnimateCSS from "./AnimateCSS"
 
     export default {
         data: function() {
@@ -34,7 +36,8 @@
             }
         },
         components: {
-            appMixTransition: MixTransition
+            appMixTransition: MixTransition,
+            appAnimateCss: AnimateCSS
         }
     }
 </script>
