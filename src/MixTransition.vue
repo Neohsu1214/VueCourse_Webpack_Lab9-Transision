@@ -2,12 +2,13 @@
     <div>
         <h1>Mix Animations</h1>
         <hr>
-        <button class="btn btn-primary" @click="show = !show">Show Alert</button>
+        <button class="btn btn-primary" @click="show">Hide Alert</button>
         <br><br>
         <!-- 幫 transition 取名 mix 後會自動依序叫用 mix-enter, mix-enter-active, mix-leave, mix-leave-active -->
-        <transition name="mix">
-            <div class="alert alert-info" v-if="show">This is some info!</div>
+        <transition name="mix" appear>
+            <div class="alert alert-info" v-if="!show">This is some info!</div>
         </transition>
+        <!-- transition 加上 appear 可於網頁一開始就執行一次 -->
     </div>
 </template>
 
@@ -15,7 +16,7 @@
 export default {
     data() {
         return {
-            show: false
+            show: true
         }
     }
 }
