@@ -20,6 +20,20 @@
                 <app-mix-transition></app-mix-transition>
 
                 <app-animate-css></app-animate-css>
+
+                <hr>
+
+                <h1>Dynamic Animations</h1>
+                <!-- 此利用選單與雙向綁定來做到動態設定 transition 要用哪一套設定， transition 的 name 要加上 v-bond:name 囉！ -->
+                <select v-model="selectedAnimation" class="form-control">
+                    <option value="fade">Fade</option>
+                    <option value="slide">Slide</option>
+                </select>
+                <button class="btn btn-primary" @click="show2 = !show2">Show Alert</button>
+                <br><br>
+                <transition :name="selectedAnimation">
+                    <div class="alert alert-info" v-if="show2">This is some info!</div>
+                </transition>
             </div>
         </div>
     </div>
@@ -32,7 +46,9 @@
     export default {
         data: function() {
             return {
-                show: false
+                show: false,
+                show2: false,
+                selectedAnimation: 'slide'
             }
         },
         components: {
